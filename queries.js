@@ -25,6 +25,7 @@ var updatePhelpsLab = function() {
     
     Correct Address: 1953 Museum Rd, Gainesville, FL 32603
 
+    listing.findOne({"name" : "Phelps Laboratory"}, function(
    */
 };
 var retrieveAllListings = function() {
@@ -35,5 +36,5 @@ var retrieveAllListings = function() {
 
 findLibraryWest();
 removeCable();
-updatePhelpsMemorial();
+updatePhelpsLab();
 retrieveAllListings();
