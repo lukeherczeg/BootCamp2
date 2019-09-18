@@ -5,7 +5,12 @@ var mongoose = require('mongoose'),
 //Create your schema for the data in the listings.json file that will define how data is saved in your database
 
 var listingSchema = new Schema({
-  /* Your code for a schema here */ 
+    /* Your code for a schema here */
+
+    /*
+      I made the code and name required to force uniqueness on the data, so that I didn't overpopulate
+      the database while testing it.
+     */
     code: { type: String, required: true },
     name: { type: String, required: true },
     coordinates: {
@@ -18,14 +23,15 @@ var listingSchema = new Schema({
 // Create a 'pre' function that adds the updated_at (and created_at if not already there) property 
 
 listingSchema.pre('save', function(next) {
-    /* your code here */
-    var currentDate = new Date();
-    this.updated_at = currentDate;
+    // Used thisDate to add the required properties.
+    var thisDate = new Date();
+    this.updated_at = thisDate;
 
     if(!this.created_at) {
-        this.created_at = currentDate;
+        this.created_at = thisDate;
     }
 
+    //Need the next() function to continue.
     next();
 });
 

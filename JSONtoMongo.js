@@ -11,6 +11,7 @@ var fs = require('fs'),
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
 
+//config.db.uri is what I used to keepy my key hidden.
 mongoose.connect(config.db.uri, { useNewUrlParser: true });
 
 /* 
@@ -18,7 +19,10 @@ mongoose.connect(config.db.uri, { useNewUrlParser: true });
   and then save it to your Mongo database 
  */
 fs.readFile('listings.json', 'utf8', function(err, data) {
-    if (err) throw err;
+    if (err)
+        throw err;
+
+    //Parsed the data and put it in listingContent, which I then loop through to save each as data in Mongo.
     var listingContent = JSON.parse(data);
     listingContent.entries.forEach(function (listing) {
         new Listing(listing).save();
