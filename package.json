@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/lukeherczeg/BootCamp2#readme",
   "dependencies": {
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.5",
     "should": "^13.2.3"
   },
   "devDependencies": {}
